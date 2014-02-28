@@ -1,0 +1,10 @@
+name          'yelp-netstdlib'
+version       '0.0.1'
+source        'https://github.com/Yelp/puppet-netstdlib.git'
+author        'yelp'
+license       'Apache License, Version 2.0'
+summary       'A collection of network functions and facts'
+description   'A collection of network functions and facts'
+project_page  'https://github.com/Yelp/puppet-netstdlib'
+
+dependency 'puppetlabs/stdlib'
