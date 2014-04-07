@@ -1,7 +1,5 @@
 ##Overview
-
-[![Build Status](https://travis-ci.org/yelp/puppet-netstdlib.png)](https://travis-ci.org/yelp/puppet-netstdlib)
-
+[![Build Status](https://travis-ci.org/Yelp/puppet-netstdlib.png)](https://travis-ci.org/Yelp/puppet-netstdlib)
 
 `netstdlib` is a collection of puppet functions and facts for network related work.
 
