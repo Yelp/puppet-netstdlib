@@ -5,44 +5,44 @@
 
 ##Functions
 
-cidr_to_broadcast.rb
+cidr_to_broadcast
 -------------------
 Converts an CIDR address of the form 192.168.0.1/24 into its broadcast address
 
-cidr_to_netmask.rb
+cidr_to_netmask
 -------------------
 Converts an CIDR address of the form 192.168.0.1/24 into its netmask address
 
-cidr_to_network.rb
+cidr_to_network
 -------------------
 Converts an CIDR address of the form 192.168.0.1/24 into its network address
 
-fqdn_mac.rb
+fqdn_mac
 -------------------
 Generate MAC addresses based on the results of fqdn_rand. Useful for VMs that 
 might have the same hostname.
 
-gethostbyaddr2array.rb
+gethostbyaddr2array
 -------------------
 Resolve an IP address into one or more names. (Looks up reverse DNS PTRs)
 
-gethostbyname2array.rb
+gethostbyname2array
 -------------------
 Resolve a name into one or more IP addresses.
 
-int_to_ip.rb
+int_to_ip
 -------------------
 Converts a dotted address of the form 192.168.0.1 into its 32 bit integer representation
 
-ip_in_cidr.rb
+ip_in_cidr
 -------------------
 Checks if an ip address is contained within a CIDR address of the form 192.168.0.1/24
 
-ip_to_int.rb
+ip_to_int
 -------------------
 Converts a dotted address of the form 192.168.0.1 into its 32 bit integer representation
 
-netmask_to_masklen.rb
+netmask_to_masklen
 -------------------
 Converts a netmask of the form 255.255.0.0 to the mask length (e.g. 16)
 
