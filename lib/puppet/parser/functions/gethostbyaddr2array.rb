@@ -1,5 +1,5 @@
 
-# Resolve a name into one or more IP addresses
+# Resolve an IP address into one or more names.
 #
 # E.g. gethostbyaddr2array('10.56.5.8') returns:
 #  ['rackmaster-r5-devc.dev.yelpcorp.com']

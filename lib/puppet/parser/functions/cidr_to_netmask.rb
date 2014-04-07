@@ -7,7 +7,7 @@ end
 module Puppet::Parser::Functions
 
   newfunction(:cidr_to_netmask, :type => :rvalue, :doc => <<-'ENDHEREDOC'
-    Converts an CIDR address of the form 192.168.0.1/24 into its network address
+    Converts an CIDR address of the form 192.168.0.1/24 into its netmask.
 
     ENDHEREDOC
     ) do |args|
