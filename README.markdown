@@ -32,7 +32,7 @@ Resolve a name into one or more IP addresses.
 
 int_to_ip
 -------------------
-Converts a dotted address of the form 192.168.0.1 into its 32 bit integer representation
+Converts an IP in its 32 bit integer representation to a dotted address of the form 192.168.0.1
 
 ip_in_cidr
 -------------------
