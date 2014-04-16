@@ -15,6 +15,7 @@ describe 'ip_to_int' do
   it 'should fail with :undef' do
     expect { subject.call([:undef]) }.to raise_error(Puppet::ParseError)
   end
+  it { should run.with_params([:undef]).and_return(3232235788) }
   it 'should fail with many args' do
     expect { subject.call(['foo', 'bar']) }.to raise_error(Puppet::ParseError)
   end
