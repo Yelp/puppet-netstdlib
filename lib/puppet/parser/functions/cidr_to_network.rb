@@ -11,7 +11,7 @@ module Puppet::Parser::Functions
     end
     arg = args[0]
     unless arg.respond_to?('to_s') then
-        raise Puppet::ParseError, ("#{arg.inspect} is not a string. It looks to be a #{arg.class}")
+      raise Puppet::ParseError, ("#{arg.inspect} is not a string. It looks to be a #{arg.class}")
     end
     arg = arg.to_s
     begin
