@@ -10,7 +10,7 @@ module Puppet::Parser::Functions
       raise Puppet::ParseError, ("ip_to_int(): wrong number of arguments (#{args.length}; must be 1)")
     end
     arg = args[0]
-    unless arg.respond_to?('to_s') or ! arg then
+    unless arg.respond_to?('to_s') then
       raise Puppet::ParseError, ("#{arg.inspect} is not a string. It looks to be a #{arg.class}")
     end
 

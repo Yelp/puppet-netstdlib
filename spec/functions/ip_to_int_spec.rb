@@ -13,10 +13,8 @@ describe 'ip_to_int' do
     expect { subject.call([]) }.to raise_error(Puppet::ParseError)
   end
   it 'should fail with :undef' do
-    #expect { subject.call([:undef]) }.to raise_error(Puppet::ParseError)
-    lambda { scope.function_ip_to_int([:undef]) }.should( raise_error(Puppet::ParseError))
+    expect { subject.call([:undef]) }.to raise_error(Puppet::ParseError)
   end
-  #it { should run.with_params([:undef]).and_return(3232235788) }
   it 'should fail with many args' do
     expect { subject.call(['foo', 'bar']) }.to raise_error(Puppet::ParseError)
   end
