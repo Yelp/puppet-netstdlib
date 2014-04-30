@@ -3,6 +3,38 @@
 
 `netstdlib` is a collection of puppet functions and facts for network related work.
 
+These functions and facts are very handy when using puppet to do complex logic
+on code that deals with configuring or interpreting network interfaces. 
+
+Most of them simply expose the native ruby implementations into the puppet 
+manifest so you can use them to say, edit OpenStack config files, or 
+manipulate DCHP server pools.
+
+## Examples
+
+```puppet
+# Use macaddress_rand instead of FQDNs because we have lots of VMs with
+# the same hostname
+cron::d { 'puppet_agent':
+  ensure  => $ensure,
+  minute  => macaddress_rand(60),
+  user    => 'root',
+  command => 'puppet agent -t >/dev/null 2>&1',
+}
+```
+
+```puppet
+# Have the puppet server query DNS to get the current round-robin A records
+$web_server_ips_array = gethostbyname2array("webs.yourdomain.com")
+validate_array($web_server_ips_array)
+```
+
+```puppet
+# Reverse Lookup your ip to a name:
+$my_name = gethostbyaddr2array($::ipaddress)
+notify { "My reverse dns seems to be: ${my_name}": }
+```
+
 ##Functions
 
 cidr_to_broadcast
