@@ -83,3 +83,4 @@ Converts a netmask of the form 255.255.0.0 to the mask length (e.g. 16)
 Puppet functions are server-side, facts are client side. Keep this in mind as 
 any DNS related functions will take place on the server.
 
+
