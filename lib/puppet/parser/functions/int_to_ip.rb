@@ -1,4 +1,3 @@
-require "ipaddr"
 module Puppet::Parser::Functions
 
   newfunction(:int_to_ip, :type => :rvalue, :doc => <<-'ENDHEREDOC'
@@ -12,12 +11,13 @@ module Puppet::Parser::Functions
     end
     arg = args[0]
     unless arg.respond_to?('to_i') then
-        raise Puppet::ParseError, ("#{arg.inspect} is not a integer. It looks to be a #{arg.class}")
+      raise Puppet::ParseError, ("#{arg.inspect} is not a integer. It looks to be a #{arg.class}")
     end
 
     arg = arg.to_i
     begin
-      IPAddr.new(arg, Socket::AF_INET).to_s
+      #IPAddr.new(arg, Socket::AF_INET).to_s
+      raise Puppet::ParseError, (e)
     rescue ArgumentError => e
       raise Puppet::ParseError, (e)
     end 
