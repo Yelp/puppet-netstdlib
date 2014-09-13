@@ -19,7 +19,7 @@ module Puppet::Parser::Functions
     begin
       IPAddr.new(arg, Socket::AF_INET).to_s
     rescue ArgumentError => e
-      raise Puppet::ParseError, (e)
+      raise Puppet::ParseError(e)
     end 
   end
 
