@@ -11,13 +11,13 @@ module Puppet::Parser::Functions
       raise Puppet::ParseError, ("int_to_ip(): wrong number of arguments (#{args.length}; must be 1)")
     end
     arg = args[0]
-    unless arg.respond_to?('to_i') then
+    myint = Integer(arg) rescue false
+    if myint == false then
         raise Puppet::ParseError, ("#{arg.inspect} is not a integer. It looks to be a #{arg.class}")
     end
 
-    arg = arg.to_i
     begin
-      IPAddr.new(arg, Socket::AF_INET).to_s
+      IPAddr.new(myint, Socket::AF_INET).to_s
     rescue ArgumentError => e
       raise Puppet::ParseError(e)
     end 

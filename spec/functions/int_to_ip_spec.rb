@@ -12,8 +12,8 @@ describe 'int_to_ip' do
   it 'should fail with no args' do
     expect { subject.call([]) }.to raise_error(Puppet::ParseError)
   end
-  it 'should fail with :undef' do
-    expect { subject.call([:undef]) }.to raise_error(Puppet::ParseError)
+  it 'should fail with foobar' do
+    expect { subject.call(['foobar']) }.to raise_error(Puppet::ParseError)
   end
   it 'should fail with many args' do
     expect { subject.call(['foo', 'bar']) }.to raise_error(Puppet::ParseError)
