@@ -1,7 +1,7 @@
 module Puppet::Parser::Functions
 
   newfunction(:ip_to_int, :type => :rvalue, :doc => <<-'ENDHEREDOC'
-    Converts a dotted address of the form 192.168.0.1 into its 32 bit integer representation
+    Converts a dotted address of the form 192.168.0.1 into its unsigned 32 bit integer representation
 
     ENDHEREDOC
     ) do |args|
