@@ -74,6 +74,11 @@ ip_to_int
 -------------------
 Converts a dotted address of the form 192.168.0.1 into its 32 bit integer representation
 
+mac_to_eui64
+-------------------
+Converts a MAC address of the form 52:54:00:12:09:f3 into its EUI64 representation
+of the form 5054:00ff:fe12:09f3
+
 netmask_to_masklen
 -------------------
 Converts a netmask of the form 255.255.0.0 to the mask length (e.g. 16)
