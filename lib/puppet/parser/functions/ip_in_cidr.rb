@@ -21,21 +21,20 @@ module Puppet::Parser::Functions
     else
       raise Puppet::ParseError, ("#{args[1].inspect} is not a string. It looks to be a #{args[1].class}")
     end
-    matching = true
     cidr_ary.each { |cidr|
       cidr = cidr.to_s
       unless cidr.respond_to?('to_s') then
         raise Puppet::ParseError, ("#{cidr.inspect} is not a string. It looks to be a #{cidr.class}")
       end
       begin
-        if not IPAddr.new(cidr).include? IPAddr.new(ip)
-          matching = false
+        if IPAddr.new(cidr).include? IPAddr.new(ip)
+          return true
         end
       rescue ArgumentError => e
          raise Puppet::ParseError, (e)
       end
     }
-    return matching
+    return false
   end
 end
 
