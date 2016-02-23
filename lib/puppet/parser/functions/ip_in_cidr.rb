@@ -14,17 +14,27 @@ module Puppet::Parser::Functions
       raise Puppet::ParseError, ("#{ip.inspect} is not a string. It looks to be a #{ip.class}")
     end
     ip = ip.to_s
-    cidr = args[1]
-    unless cidr.respond_to?('to_s') then
-      raise Puppet::ParseError, ("#{cidr.inspect} is not a string. It looks to be a #{cidr.class}")
+    if args[1].is_a? String
+      cidr_ary = [ args[1] ]
+    elsif args[1].is_a? Array
+      cidr_ary = args[1]
+    else
+      raise Puppet::ParseError, ("#{args[1].inspect} is not a string. It looks to be a #{args[1].class}")
     end
-    cidr = cidr.to_s
-    begin
-      IPAddr.new(cidr).include? IPAddr.new(ip)
-    rescue ArgumentError => e
-      raise Puppet::ParseError, (e)
-    end
+    cidr_ary.each { |cidr|
+      cidr = cidr.to_s
+      unless cidr.respond_to?('to_s') then
+        raise Puppet::ParseError, ("#{cidr.inspect} is not a string. It looks to be a #{cidr.class}")
+      end
+      begin
+        if IPAddr.new(cidr).include? IPAddr.new(ip)
+          return true
+        end
+      rescue ArgumentError => e
+         raise Puppet::ParseError, (e)
+      end
+    }
+    return false
   end
-
 end
 
