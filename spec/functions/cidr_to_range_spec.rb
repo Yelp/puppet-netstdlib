@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'cidr_to_range' do
-  cidr = '192.168.1.0/29'
+  let (:cidr) { '192.168.1.0/29' }
 
   it 'should return the range ips excluding the network and broadcast addresses' do
     ips = [
@@ -30,5 +30,13 @@ describe 'cidr_to_range' do
   end
   it 'should fail if given insane data type' do
     expect { subject.call([ [] ]) }.to raise_error(Puppet::ParseError)
+  end
+
+  context "with a /32 cidr" do
+    let (:cidr) { '192.168.1.0/32' }
+
+    it 'should return an empty list' do
+      should run.with_params(cidr).and_return([])
+    end
   end
 end
