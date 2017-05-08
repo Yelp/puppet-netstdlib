@@ -12,7 +12,7 @@ module Puppet::Parser::Functions
     end
 
     arg = args[0]
-    unless arg.respond_to?('to_s')
+    unless arg.kind_of? String
       raise Puppet::ParseError, ("#{arg.inspect} is not a string. It looks to be a #{arg.class}")
     end
 
