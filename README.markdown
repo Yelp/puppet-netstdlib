@@ -1,13 +1,13 @@
-##Overview
+## Overview
 [![Build Status](https://travis-ci.org/Yelp/puppet-netstdlib.png)](https://travis-ci.org/Yelp/puppet-netstdlib)
 
 `netstdlib` is a collection of puppet functions and facts for network related work.
 
 These functions and facts are very handy when using puppet to do complex logic
-on code that deals with configuring or interpreting network interfaces. 
+on code that deals with configuring or interpreting network interfaces.
 
-Most of them simply expose the native ruby implementations into the puppet 
-manifest so you can use them to say, edit OpenStack config files, or 
+Most of them simply expose the native ruby implementations into the puppet
+manifest so you can use them to say, edit OpenStack config files, or
 manipulate DCHP server pools.
 
 ## Examples
@@ -35,7 +35,7 @@ $my_name = gethostbyaddr2array($::ipaddress)
 notify { "My reverse dns seems to be: ${my_name}": }
 ```
 
-##Functions
+## Functions
 
 cidr_to_broadcast
 -------------------
@@ -49,9 +49,14 @@ cidr_to_network
 -------------------
 Converts an CIDR address of the form 192.168.0.1/24 into its network address
 
+cidr_to_range
+-------------------
+Converts an CIDR address of the form 192.168.0.1/24 into a range of IP addresses, excluding the network and
+broadcast addresses.
+
 fqdn_mac
 -------------------
-Generate MAC addresses based on the results of fqdn_rand. Useful for VMs that 
+Generate MAC addresses based on the results of fqdn_rand. Useful for VMs that
 might have the same hostname.
 
 gethostbyaddr2array
@@ -83,8 +88,7 @@ netmask_to_masklen
 -------------------
 Converts a netmask of the form 255.255.0.0 to the mask length (e.g. 16)
 
-##Limitations
+## Limitations
 
-Puppet functions are server-side, facts are client side. Keep this in mind as 
+Puppet functions are server-side, facts are client side. Keep this in mind as
 any DNS related functions will take place on the server.
-
